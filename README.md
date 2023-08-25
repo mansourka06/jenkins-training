@@ -13,6 +13,7 @@ Building CICD DevOps pipelines with Jenkins, Docker and Ansible
 
 ## What was learned:
 
+- **Installating and configuring a jenkins server**
 - **Deploying jenkins using docker**
 - **Creating pipelines to build, test and deploy your containerized applications**
 - **Deploying an applications in the cloud with heroku**
