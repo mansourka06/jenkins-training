@@ -8,8 +8,8 @@ Building CICD DevOps pipelines with Jenkins, Docker and Ansible
 - In this course, you'll learn how to deploy a continuous integration and deployment chain. You'll also learn how to set up a "Pipeline As Code" using Jenkinsfile.
 
 ## Prerequisites (but not mandatory):
-- [x](docker)
-- [x](git)
+- [x] Docker
+- [x] Git
 
 ## What was learned:
 
