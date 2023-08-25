@@ -1,0 +1,58 @@
+// Build, Run and Push docker image with CI/CD as code
+ 
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "alpinehelloworld"
+        IMAGE_TAG = "latest"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+ 
+                checkout scm
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Building Docker image with name tag
+                    sh "docker build -t $REGISTER_USER/$IMAGE_NAME:$IMAGE_TAG ."
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    // Stop and remove the existing container
+                    sh "docker stop $IMAGE_NAME || true"
+                    sh "docker rm $IMAGE_NAME || true"
+
+                    // Running the built container
+                    sh "docker run -d -p 80:80 --name $IMAGE_NAME $REGISTER_USER/$IMAGE_NAME:$IMAGE_TAG"
+                }
+            }
+        }
+
+        stage('Push to register') {
+            steps {
+                script {
+                    // Push the built container to register
+                    sh "docker push $REGISTER_USER/$IMAGE_NAME:$IMAGE_TAG"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up resources
+            sh "docker stop $IMAGE_NAME || true"
+            sh "docker rm $IMAGE_NAME || true"
+        }
+    }
+}
