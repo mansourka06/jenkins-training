@@ -99,7 +99,10 @@ sudo usermod -aG docker jenkins
 sudo service jenkins restart
 ```
 
-:note: **Note:** This gives the Jenkins user the necessary privileges to interact with Docker.
+---
+**NOTE**
+This gives the Jenkins user the necessary privileges to interact with Docker.
+---...
 
 
 ## Author
