@@ -59,8 +59,7 @@ cd alpinehelloworld
 docker build ${IMAGE_NAME}:${IMAGE_TAG}
 
 ```
-
-:note: **Note:** Modify the above script as needed to match your application's specific deployment requirements.
+&#x1F4DD; **Note:** You can adapt the script as needed to match your application's specific deployment requirements.
 
 4. **Save and run the Job**
 
