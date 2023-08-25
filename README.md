@@ -56,7 +56,7 @@ In the job configuration, scroll down to the "Build" section.
 
 git clone https://github.com/mansourka06/alpinehelloworld.git
 cd alpinehelloworld
-docker build ${IMAGE_NAME}:${IMAGE_TAG}
+docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
 
 ```
 &#x1F4DD; **Note:** You can adapt the script as needed to match your application's specific deployment requirements.
@@ -76,14 +76,14 @@ Congratulations! You've successfully created a Jenkins job that deploys a Docker
 
 If you encounter any issues while setting up or running the Jenkins job, here are some common problems and their solutions:
 
-#### Error: `fatal: destination path 'PATH_NAME' already exists and is not an empty directory.`
+&#x1F6AB; **Error:** `fatal: destination path 'PATH_NAME' already exists and is not an empty directory.`
 
 This error occurs when the directory specified for the project already exists in the workspace and is not empty. The Jenkins workspace is used to clone repositories and build projects. If you're using a version control system like Git, it's possible that a repository has been cloned in the workspace directory.
 
 **Solution:**
 Ensure that your Jenkins job properly manages the workspace, either by cleaning it before each build or using a unique workspace for each build.
 
-#### Error: `ERROR: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock`
+&#x1F6AB; **Error:** `ERROR: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock`
 
 This error indicates that the Jenkins user doesn't have the necessary permissions to access the Docker daemon socket. The Docker daemon socket is used to communicate with the Docker engine.
 
