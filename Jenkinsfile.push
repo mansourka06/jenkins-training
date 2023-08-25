@@ -41,7 +41,7 @@ pipeline {
         stage('Push to register') {
             steps {
                 script {
-                    // Push the built container to register
+                    // Push the built container to registry
                     sh "docker push $REGISTER_USER/$IMAGE_NAME:$IMAGE_TAG"
                 }
             }
